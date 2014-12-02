@@ -66,17 +66,22 @@ def game():
     menu()
 def calculate(ans, j):
     lis_ans = []
+    count = 0
     for k in ans:
-        print k
-        print j
         if k not in j:
             if k not in check:
                 print 'Can not use '+k
                 print 'plese try again'
                 print j[0], j[1], j[2], j[3]
                 calculate(raw_input(), j)
+        elif count > 4:
+            print 'Can not use number more than 4'
+            print 'plese try again'
+            print j[0], j[1], j[2], j[3]
+            calculate(raw_input(), j)
         elif k in j:
             k = float(k)
+            count += 1
         lis_ans.append(k)
     ans = eval(str(ans))
     return ans
