@@ -72,9 +72,6 @@ class menuinterface(object):
         tkMessageBox.showinfo(title='CREDIT',message='\n MR.Phossawat Pruekphanasant IT57070077 Sec2 \n MR.Apchai Tuntasiri IT57070142 Sec3')
         return
     def calculate(self,display, j, lv,lv_game):
-        if j == 5:
-            j = 0
-            lv += 1
         ans = str(display)
         lis_ans = []
         for k in display:
@@ -82,15 +79,18 @@ class menuinterface(object):
                 if k not in check:
                     self.cannot(j, lv, lv_game,k)
             elif k in lis[lv][j]:
-                k = float(k)
+                k = str(float(k))
             lis_ans.append(k)
             if k not in check:
-                if lis_ans.count(k) > lis[lv][j].count(str(int(k))):
+                if lis_ans.count(k) > lis[lv][j].count(k[0]):
                     self.counterror(j, lv, lv_game,k)
-        ans = eval(str(ans))
+        ans = eval(str(''.join(lis_ans)))
         if ans == 24:
             j += 1
             lv_game += 1
+            if j == 5:
+                j = 0
+                lv += 1
             self.win_f(j, lv, lv_game)
         else:
             self.lose(j, lv, lv_game)
@@ -135,4 +135,3 @@ class menuinterface(object):
         gbutton = Button(self.counterror_gui,text = 'Try Again', command = lambda:self.counterror_gui.destroy()&self.game24(j, lv, lv_game), font = ('purisa', 10), bg = 'white', fg = 'black').place(x = 195, y = 200)
         self.counterror_gui.mainloop()
 menuinterface()
-
