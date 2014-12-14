@@ -63,13 +63,18 @@ class menuinterface(object):
         self.root.destroy()
     #--MessageBox--
     def howtoplay(self):
-        tkMessageBox.showinfo(title='How to play',message='How to play')
+        tkMessageBox.showinfo(title='How to play',message='1.There are only four numbers.\n'
+                              '2.Think of the factors of 24: 1x24, 2x12, 3x8, and 4x6. Try to make factors if it is what you are can do with your numbers.\n'
+                              '3.Make factors with the four numbers shown in the first step.\n'
+                              '4.Solve the problem. 2x4=8, now when you have used 2 and 4, you may not use them again. \n'
+                              'Now multiply your numbers together. 8x3=24. You may not repeat ANY numbers. You may only use each number once.\n')
+                    
         return
     def aboutus(self):
         tkMessageBox.showinfo(title='About us',message='This is project by freshy college IT@KMITL')
         return
     def credit(self):
-        tkMessageBox.showinfo(title='CREDIT',message='\n MR.Phossawat Pruekphanasant IT57070077 Sec2 \n MR.Apchai Tuntasiri IT57070142 Sec3')
+        tkMessageBox.showinfo(title='CREDIT',message='\n MR.Phossawat Pruekphanasant IT57070077 Sec2 \n MR.Apichai Tantasirin IT57070142 Sec3')
         return
     def calculate(self,display, j, lv,lv_game):
         ans = str(display)
