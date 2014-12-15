@@ -17,6 +17,9 @@ check = ['+', '-', '*', '/', '(', ')']
 class menuinterface(object):
     '''main method'''
     def __init__(self):
+        '''
+        menu interface
+        '''
         self.root = Tk()
         self.root.geometry('450x450+200+200')
         self.root.config(bg = 'black')
@@ -38,6 +41,9 @@ class menuinterface(object):
         self.root.config(menu = menubar)
         self.root.mainloop()
     def game24(self, j, lv,lv_game):
+        '''
+        game interface
+        '''
         self.game = Tk()
         self.game.geometry('450x450+200+200')
         self.game.config(bg = 'black')
@@ -60,23 +66,33 @@ class menuinterface(object):
         self.game.config(menu = menubar)
         self.game.mainloop()     
     def quit24(self):
+        '''
+        quiet function
+        '''
         self.root.destroy()
     #--MessageBox--
     def howtoplay(self):
-        tkMessageBox.showinfo(title='How to play',message='1.There are only four numbers.\n'
-                              '2.Think of the factors of 24: 1x24, 2x12, 3x8, and 4x6. Try to make factors if it is what you are can do with your numbers.\n'
-                              '3.Make factors with the four numbers shown in the first step.\n'
-                              '4.Solve the problem. 2x4=8, now when you have used 2 and 4, you may not use them again. \n'
-                              'Now multiply your numbers together. 8x3=24. You may not repeat ANY numbers. You may only use each number once.\n')
-                    
+        '''
+        how to play message
+        '''
+        tkMessageBox.showinfo(title='How to play',message='How to play')
         return
     def aboutus(self):
+        '''
+        about this project message
+        '''
         tkMessageBox.showinfo(title='About us',message='This is project by freshy college IT@KMITL')
         return
     def credit(self):
-        tkMessageBox.showinfo(title='CREDIT',message='\n MR.Phossawat Pruekphanasant IT57070077 Sec2 \n MR.Apichai Tantasirin IT57070142 Sec3')
+        '''
+        credit message
+        '''
+        tkMessageBox.showinfo(title='CREDIT',message='\n MR.Phossawat Pruekphanasant IT57070077 Sec2 \n MR.Apchai Tuntasiri IT57070142 Sec3')
         return
     def calculate(self,display, j, lv,lv_game):
+        '''
+        calculate the entry of input and check it equal 24 or not
+        '''
         ans = str(display)
         lis_ans = []
         for k in display:
@@ -100,6 +116,9 @@ class menuinterface(object):
         else:
             self.lose(j, lv, lv_game)
     def win_f(self, j, lv, lv_game):
+        '''
+        game win display
+        '''
         self.game.destroy()
         self.win = Tk()
         self.win.geometry('450x450+200+200')
@@ -110,6 +129,9 @@ class menuinterface(object):
         gbutton = Button(self.win,text = 'NEXT', command = lambda:self.win.destroy()&self.game24(j, lv,lv_game), font = ('purisa', 10), bg = 'white', fg = 'black').place(x = 195, y = 200)
         self.win.mainloop()
     def lose(self, j, lv, lv_game):
+        '''
+        game lose display
+        '''
         self.game.destroy()
         self.lose = Tk()
         self.lose.geometry('450x450+200+200')
@@ -120,6 +142,9 @@ class menuinterface(object):
         gbutton = Button(self.lose,text = 'Menu', command = lambda:self.lose.destroy()&self.__init__(), font = ('purisa', 10), bg = 'white', fg = 'black').place(x = 195, y = 200)
         self.lose.mainloop()
     def cannot(self, j, lv, lv_game,k):
+        '''
+        error cannot use some thing that player input
+        '''
         self.game.destroy()
         self.cannot_gui = Tk()
         self.cannot_gui.geometry('450x450+200+200')
@@ -130,6 +155,9 @@ class menuinterface(object):
         gbutton = Button(self.cannot_gui,text = 'Try Again', command = lambda:self.cannot_gui.destroy()&self.game24(j, lv, lv_game), font = ('purisa', 10), bg = 'white', fg = 'black').place(x = 195, y = 200)
         self.cannot_gui.mainloop()
     def counterror(self, j, lv, lv_game,k):
+        '''
+        error count if player write some number more than quize have
+        '''
         self.game.destroy()
         self.counterror_gui = Tk()
         self.counterror_gui.geometry('450x450+200+200')
@@ -140,3 +168,4 @@ class menuinterface(object):
         gbutton = Button(self.counterror_gui,text = 'Try Again', command = lambda:self.counterror_gui.destroy()&self.game24(j, lv, lv_game), font = ('purisa', 10), bg = 'white', fg = 'black').place(x = 195, y = 200)
         self.counterror_gui.mainloop()
 menuinterface()
+
